@@ -1,0 +1,321 @@
+/* //////////////////////////////////////////////////////// */
+
+:root { /* seudonimo de 'html', para declarar las variables que voy a usar en css */
+    /* Establezco los colores */
+    /* Modifique varios colores para que se relacionen a la paleta de ricky y morty y no quedan muy relacionados a su tag
+    por ejemplo los dark son gamas de amarillo */
+
+    --primary-solid: rgb(191, 222, 63);
+    --primary-900: rgba(191, 222, 63, 0.9);
+    --primary-500: rgba(191, 222, 63, 0.5);
+    --primary-300: rgba(191, 222, 638, 0.3);
+
+    --secondary-solid: #1D84B5;
+    --secondary-900: rgba(29, 132, 181, 0.9);
+    --secondary-500: rgba(29, 132, 181, 0.5);
+    --secondary-300: rgba(29, 132, 181, 0.3);
+
+    /* Paleta de colores completa */
+    --dark-solid: #ffed4f;
+    --dark-900: rgba(252, 255, 74, 0.9);
+    --dark-500: rgba(252, 255, 74, 0.5);
+    --dark-300: rgba(252, 255, 74, 0.3);
+    
+    --dark-bg-solid: #161b27;
+    --light-bg-solid:#FAFAFF;
+    --light-font-solid:#FFFFFF;
+
+    --terciary-solid: #FF1654;
+    --terciary-900: rgb(255, 22, 84, 0.9);
+    --terciary-500: rgba(255, 22, 84, 0.5);
+    --terciary-300: rgba(255, 22, 84, 0.3);
+    
+    /* font-sizes */
+    /* Utilizo unicamente las ultimas */
+    --font-display: 4.6em;
+    --font-xxlarge: 3.8em;
+    --font-xlarge: 3em;
+    --font-large: 2.4em;
+    --font-medium: 1.8em;
+    --font-small: 1.6em;
+    --font-small2:1.2em;
+    --font-xsmall: 0.8em;
+
+    --base-font: 'Inter', sans-serif;
+    --alternative-font: 'Raleway', sans-serif;
+
+    /* spacings buena practica: usar spacing con rem
+        1rem=1em  (para responsive) */
+        /* Uso las ultimas principalmente aunque en situaciones use pixeles, deberia estandarizarlo */
+        --spacing-128: 12.8rem;
+        --spacing-68: 6.8rem;
+        --spacing-36: 3.6rem;
+        --spacing-28: 2.8rem;
+        --spacing-24: 2.4rem;
+        --spacing-20: 2rem;
+        --spacing-16: 1.6rem;
+        --spacing-12: 1.2rem;
+        --spacing-8: 0.8rem;
+    
+    
+}
+/* 
+The double hyphen (--) used as a prefix for a custom property 
+is used to declare a CSS variable, and that variable 
+can be used as a value for any property using the var() function.
+-- para variables de css
+ */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Con esto siempre el body va a ocupar el 100% de la pantalla// Antes en situaciones me quedaba espacio en blanco debajo del footer aunque tenga posicion relativa bottom 0 */
+body{
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+/*////////////////////////// INICIO HEADER///////////////////// */
+/* Ocupa todo el largo a diferencia del navbar (En este caso) */
+header{
+    
+    font-family: var(--alternative-font);
+    color: var(--light-font-solid); 
+    background-color: var(--dark-bg-solid);
+    padding: var(--spacing-8);
+}
+
+nav{
+    max-width: 1200px;/* Para que quede centrado aunque se aleje mucho */
+    width: 100%;
+    height: 5%;
+    margin: 0 auto;/* Dejarlo centrado */
+   
+    background-color:var(--dark-bg-solid);
+    color: #01AFC6;/* Color copiado del Logo de Ricky y Morty con extension de Chrome */
+    
+
+    font-size: var(--font-small);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.portada{
+    max-width: 450px; 
+    height: 10% ; 
+}
+
+
+/* 
+div.aviso span.especial { ... }
+Ahora, el selector solamente selecciona aquellos elementos de tipo 
+<span> con un atributo class="especial" que estén dentro de cualquier 
+elemento de tipo <div> que tenga un atributo class="aviso".
+ */
+.filtros{
+    /* The gap CSS property is a shorthand property for row-gap and 
+    column-gap specifying the gutters between grid rows and columns. */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+ div.filtros button{
+    cursor: pointer;
+    color:var(--secondary-900);
+    background-color:var(--dark-bg-solid) ;
+    border: none;
+    border-radius: 15%;
+    /* Transition le agrega un poco de delay, "Mas profesional" */
+    transition: background .3s ease-in-out;
+    font-size: var(--font-xsmall);
+    font-family: var(--alternative-font);
+    padding: var(--spacing-8) var(--spacing-8);/* Ancho y alto del boton */
+ }
+ /* Para que el boton sin genero no se expanda verticalmente */
+ #singenero{
+    width: 140px;
+ }
+ div.filtros button:hover{
+    background-color: var(--dark-900);
+    color:light var(--light-font-solid)
+}
+
+/*////////////////////////// INICIO HEADER///////////////////// */
+
+
+/*////////////////////////// INICIO MAIN //////////////////////*/
+
+
+/* INICIO MAIN */
+
+main{
+  padding-top:var(--spacing-8) ;
+  background-color: var(--secondary-500) ;
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+#personajesListados{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: var(--font-small);
+    background-color:var(--secondary-500) ;
+    margin:0  auto;
+    padding: var(--spacing-8) var(--spacing-8);
+    margin-bottom: 20px;
+    border-radius: 45%;
+    max-width: 400px;
+}
+
+#tarjetas{
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--spacing-8) var(--spacing-8);
+    justify-content: space-evenly;
+}
+
+.contenedor{
+  background-color: var(--secondary-500);
+  
+  flex-basis: min-content;
+  /* !!!!Al colocar min-content puedo variar la cantidad de tarjetas que aparecen con el zoom y todas se ajustan a la imagen */
+  /* Antes usaba flex basis 20% que me permitia tener 5 tarjetas unicamente por fila */
+  box-sizing: border-box;
+  border: 1px solid black;
+
+  margin: var(--spacing-16) var(--spacing-8);
+  display: flex ;
+  flex-direction: column;
+  align-content: space-evenly;
+  
+}
+
+div.contenedor button{
+  font-family: var(--alternative-font);
+  color: var(--light-font-solid); 
+  background-color: var(--dark-bg-solid);
+  text-align: left;
+  padding-left: 10%;
+  padding: var(--spacing-8);
+  /* Para que el boton vermas siempre aparezca al dinal del contenedor */
+  margin-top: auto;
+  transition: background .3s ease-in-out;
+  cursor: pointer;
+  
+}
+
+div.contenedor button:hover {
+  background-color: var(--dark-900);
+  color:light var(--light-font-solid);
+}
+.contenedor:hover {
+  transform: scale(1.1); /* Ajusta el factor de escala según tus preferencias */
+  box-shadow: 0 0 100px var(--primary-solid);
+}
+
+
+
+.nombre{
+    color: var( --dark-bg-solid);
+    background-color:  var(--primary-solid);
+    text-align: center;
+}
+/* Contenedor General de cada personaje */
+
+/* Contenedor de datos de cada personaje */
+.datos{
+    padding-left: 5%;
+    font-size: var(--font-small2);
+    height: fit-content;
+}
+/* Botones inferiores de cambio de pagina */
+
+/*////////////////////////// FIN MAIN //////////////////////*/
+
+
+/*////////////////// INICIO FOOTER ///////////// */
+
+.paginas{
+   display: flex;
+   justify-content: center;
+}
+
+
+
+section.paginas button{
+  
+  color:var(--secondary-900);
+  background-color:var(--dark-bg-solid) ;
+  border: none;
+  border-radius: 10%;
+  /* Transition le agrega un poco de delay, "Mas profesional" */
+  transition: background .3s ease-in-out;
+  font-size: var(--font-xsmall);
+  font-family: var(--alternative-font);
+  padding: var(--spacing-8) var(--spacing-8);/* Ancho y alto del boton */
+  
+}
+/* Que no haga la animacion de boton si se encuentra deshabilitado */
+section.paginas button:not([disabled]):hover{
+  background-color: var(--dark-900);
+  color:light var(--light-font-solid);
+  cursor: pointer;
+  /* Coloco el pointer en esta seccion de hover para que no aparezca si esta deshabilitado */
+}
+/* Para alinear el numero ya que no se ve afectado por lo anterior */
+#actualPagina{
+  padding: var(--spacing-8) var(--spacing-8);
+}
+
+/* INICIO Para que no aparezcan las flechas en el input */
+
+input[type=number]::-webkit-outer-spin-button,
+
+input[type=number]::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+
+/* FIN Para que no aparezcan las flechas en el input */
+
+
+
+#paginaX{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  width: 50px;
+  
+}
+
+
+#paginasTotales{
+  padding-top: var(--spacing-8);
+  display: flex;
+  justify-content: center;
+}
+
+
+footer{
+    font-family: var(--alternative-font);
+    color: var(--light-font-solid); 
+    background-color: var(--dark-bg-solid);
+    padding-top: var(--spacing-12);
+    padding-bottom: var(--spacing-12);
+    /* Que siempre se encuentre en el pie de pagina */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: 140px;
+}
+
+/*////////////// FIN FOOTER//////////////// */
